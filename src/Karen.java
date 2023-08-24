@@ -1,7 +1,12 @@
 public class Karen
 {
-    String name;
+    public String name;
 
-    MagicAnimal[] racers;
-    int numRaces;
+    public MagicAnimal[] racers;
+    public int numRaces;
+
+    public Karen(String name)
+    {
+        this.name = name;
+    }
 }

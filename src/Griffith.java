@@ -1,6 +1,6 @@
 public class Griffith extends MagicAnimal
 {
-    String featherColor;
+    public String featherColor;
 
     public Griffith(String name, String type, int speed, double weight, String featherColor)
     {

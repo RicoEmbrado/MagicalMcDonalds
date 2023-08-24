@@ -1,6 +1,6 @@
 public class Dragon extends MagicAnimal
 {
-    int wings;
+    public int wings;
 
     public Dragon(String name, String type, int speed, double weight, int wings)
     {

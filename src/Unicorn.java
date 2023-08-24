@@ -1,6 +1,6 @@
 public class Unicorn extends MagicAnimal
 {
-    int hornSharpness;
+    public int hornSharpness;
 
     public Unicorn(String name, String type, int speed, double weight, int hornSharpness)
     {
