@@ -1,9 +1,13 @@
 public class MagicAnimal
 {
+    //instance variables
+
     public String name;
     public String type;
     public int speed;
     public double weight;
+
+    //constructors
 
     public MagicAnimal(String name, String type, int speed, double weight)
     {
@@ -12,6 +16,18 @@ public class MagicAnimal
         this.speed = speed;
         this.weight = weight;
     }
+
+    public MagicAnimal(String name)
+    {
+        this.name = "";
+    }
+
+    //brain methods
+
+//    public int calcSpd()
+//    {
+//
+//    }
 
     public String getName() {
         return name;
@@ -43,5 +59,15 @@ public class MagicAnimal
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "MagicAnimal{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", speed=" + speed +
+                ", weight=" + weight +
+                '}';
     }
 }
