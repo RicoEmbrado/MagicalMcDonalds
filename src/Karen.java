@@ -73,26 +73,34 @@ public class Karen
         {
             if ((int)speedList.get(1) < (int)speedList.get(0))
             {
-                output = animalList.get(0) + " has won the race with " + speedList.get(0) + " speed!";
+                output = animalList.get(0) + " has won the race with " + speedList.get(0) + " speed!\n" + animalList.get(1) + " only had " + speedList.get(1) + " speed.";
             }
             else if ((int)speedList.get(1) > (int)speedList.get(0))
             {
-                output = animalList.get(1) + " has won the race with " + speedList.get(1) + " speed!";
+                output = animalList.get(1) + " has won the race with " + speedList.get(1) + " speed!\n" + animalList.get(0) + " only had " + speedList.get(0) + " speed.";
+            }
+            else
+            {
+                output = "There is a tie!" + animalList.get(0) + " has " + speedList.get(0) + " speed and " + animalList.get(1) + " has " + speedList.get(1) + " speed.";
             }
         }
         else if (speedList.size() == 3)
         {
             if ((int)speedList.get(0) > (int)speedList.get(1) && (int)speedList.get(0) > (int)speedList.get(2))
             {
-                output = animalList.get(0) + " has won the race with " + speedList.get(0) + " speed!";
+                output = animalList.get(0) + " has won the race with " + speedList.get(0) + " speed!\n" + animalList.get(1) + " only had " + speedList.get(1) + " speed and " + animalList.get(2) + " only had " + speedList.get(2) + " speed.";
             }
             else if ((int)speedList.get(1) > (int)speedList.get(0) && (int)speedList.get(1) > (int)speedList.get(2))
             {
-                output = animalList.get(1) + " has won the race with " + speedList.get(1) + " speed!";
+                output = animalList.get(1) + " has won the race with " + speedList.get(1) + " speed!\n" + animalList.get(0) + " only had " + speedList.get(0) + " speed and " + animalList.get(2) + " only had " + speedList.get(2) + " speed.";
             }
             else if ((int)speedList.get(2) > (int)speedList.get(0) && (int)speedList.get(2) > (int)speedList.get(1))
             {
-                output = animalList.get(2) + " has won the race with " + speedList.get(2) + " speed!";
+                output = animalList.get(2) + " has won the race with " + speedList.get(2) + " speed!\n" + animalList.get(0) + " only had " + speedList.get(0) + " speed and " + animalList.get(1) + " only had " + speedList.get(1) + " speed.";
+            }
+            else
+            {
+                output = "There is a tie!" + animalList.get(0) + " has " + speedList.get(0) + " speed and " + animalList.get(1) + " has " + speedList.get(1) + " speed and " + animalList.get(2) + " has " + speedList.get(2) + " speed.";
             }
         }
         return output;

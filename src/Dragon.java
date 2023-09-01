@@ -48,7 +48,7 @@ public class Dragon extends MagicAnimal
     {
         int trueSpeed;
         trueSpeed = (int) (speed * (weight/10));
-        trueSpeed = (trueSpeed + wings) * fireBreathStrength;
+        trueSpeed = (trueSpeed + wings) + fireBreathStrength;
 
         return(trueSpeed);
     }
@@ -73,6 +73,12 @@ public class Dragon extends MagicAnimal
 
     @Override
     public String toString()
+    {
+        return name;
+    }
+
+    @Override
+    public String toStringRegular()
     {
         return "Dragon{" +
                 "wings=" + wings +

@@ -78,6 +78,11 @@ public class Unicorn extends MagicAnimal
     @Override
     public String toString()
     {
+        return name;
+    }
+    @Override
+    public String toStringRegular()
+    {
         return "Unicorn{" +
                 "hornSharpness=" + hornSharpness +
                 ", name='" + name + '\'' +

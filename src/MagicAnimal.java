@@ -72,8 +72,13 @@ public class MagicAnimal
         this.weight = weight;
     }
 
-    @Override
-    public String toString() {
+    public String toString()
+    {
+        return name;
+    }
+
+    public String toStringRegular()
+    {
         return "MagicAnimal{" +
                 "name='" + name + '\'' +
                 ", type='" + type + '\'' +

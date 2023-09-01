@@ -39,15 +39,15 @@ public class Griffith extends MagicAnimal
     {
         int trueSpeed;
         trueSpeed = (int) (speed * (weight/10));
-        if (featherColor.equals("Water"))
+        if (featherColor.equals("Red"))
         {
             trueSpeed = (trueSpeed + nailSharpness) * 1;
         }
-        else if (featherColor.equals("Earth"))
+        else if (featherColor.equals("Green"))
         {
             trueSpeed = (trueSpeed + nailSharpness) * 2;
         }
-        else if (featherColor.equals("Earth"))
+        else if (featherColor.equals("Blue"))
         {
             trueSpeed = (trueSpeed + nailSharpness) * 3;
         }
@@ -67,6 +67,12 @@ public class Griffith extends MagicAnimal
 
     @Override
     public String toString()
+    {
+        return name;
+    }
+
+    @Override
+    public String toStringRegular()
     {
         return "Griffith{" +
                 "featherColor='" + featherColor + '\'' +

@@ -24,7 +24,7 @@ public class Driver
         System.out.println("You are a new Karen exploring the magical world of McDonalds, what is your name?");
         karen.setName(scanner.nextLine());
         System.out.println("Your name is " + karen.getName() + ". Hi " + karen.getName() + "!");
-        System.out.println("How many animals do you plan on racing, 2, 3");
+        System.out.println("How many animals do you plan on racing, 2 or 3?");
         karen.setNumberOfRacers(scanner.nextInt());
         while (karen.getNumberOfRacers() < 2 || karen.getNumberOfRacers() > 3)
         {
@@ -43,6 +43,22 @@ public class Driver
             {
                 animalType = scanner.nextLine();
                 firstAnimal = animalType;
+                if(scanner.hasNextLine())
+                {
+                    while (!animalType.equals("Dragon") && !animalType.equals("Unicorn") && !animalType.equals("Griffith"))
+                    {
+                        animalType = scanner.nextLine();
+                        firstAnimal = animalType;
+                        if(!animalType.equals("Dragon") && !animalType.equals("Unicorn") && !animalType.equals("Griffith"))
+                        {
+                            System.out.println("Try Again.");
+                        }
+                        else if(animalType.equals("Dragon") || animalType.equals("Unicorn") || animalType.equals("Griffith"))
+                        {
+                            System.out.println("Cool!");
+                        }
+                    }
+                }
                 karen.makeAnimal(animalType, animals);
             }
             System.out.println("Please pick the animals you want to race again!\nThe choices are:\nDragon\nUnicorn\nGriffith");
@@ -149,14 +165,14 @@ public class Driver
             trueSpeeds.add(animals.get(2).calcSpd());
         }
 
-        System.out.println(karen.decideWinner(trueSpeeds, animals));
+        System.out.println("\n" + karen.decideWinner(trueSpeeds, animals) + "\n");
 
-        //extras
+        //outputting to String
 
-        System.out.println(karen.toString());
+        System.out.println(karen.toString() + "\n");
         for(int i = 0; i < animals.size(); i++)
         {
-            System.out.println(animals.get(i).toString() + "\n");
+            System.out.println(animals.get(i).toStringRegular());
         }
     }
 }
