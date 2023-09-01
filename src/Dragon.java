@@ -22,10 +22,36 @@ public class Dragon extends MagicAnimal
 
     //Methods
 
-//    public int calcSpd()
-//    {
-//
-//    }
+    @Override
+    public String feed()
+    {
+        int coin1 = (int)(Math.random()*10);
+        int coin2 = (int)(Math.random()*10);
+
+        speed = speed + (int)(Math.random()*10);
+        weight = weight + (Math.round(Math.random()*100));
+
+        if (coin1 > 5)
+        {
+            wings = wings + 1;
+        }
+        if (coin2 > 5)
+        {
+            fireBreathStrength = fireBreathStrength + 1;
+        }
+
+        return("You fed your animal and it now has " + speed + " speed and a weight of " + weight + " pounds. Its amount of wings is " + wings + ", and its fire breath strength is at " + fireBreathStrength + ".");
+    }
+
+    @Override
+    public int calcSpd()
+    {
+        int trueSpeed;
+        trueSpeed = (int) (speed * (weight/10));
+        trueSpeed = (trueSpeed + wings) * fireBreathStrength;
+
+        return(trueSpeed);
+    }
 
     //Getters and Setters
 

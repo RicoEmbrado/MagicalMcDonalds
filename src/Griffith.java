@@ -16,6 +16,47 @@ public class Griffith extends MagicAnimal
         this.name = "";
     }
 
+    //methods
+
+    @Override
+    public String feed()
+    {
+        int coin1 = (int)(Math.random()*10);
+
+        speed = speed + (int)(Math.random()*10);
+        weight = weight + (Math.round(Math.random()*100));
+
+        if (coin1 > 5)
+        {
+            nailSharpness = nailSharpness + 1;
+        }
+
+        return("You fed your animal and it now has " + speed + " speed and a weight of " + weight + " pounds. Its amount of nail sharpness is " + nailSharpness + ".");
+    }
+
+    @Override
+    public int calcSpd()
+    {
+        int trueSpeed;
+        trueSpeed = (int) (speed * (weight/10));
+        if (featherColor.equals("Water"))
+        {
+            trueSpeed = (trueSpeed + nailSharpness) * 1;
+        }
+        else if (featherColor.equals("Earth"))
+        {
+            trueSpeed = (trueSpeed + nailSharpness) * 2;
+        }
+        else if (featherColor.equals("Earth"))
+        {
+            trueSpeed = (trueSpeed + nailSharpness) * 3;
+        }
+
+        return(trueSpeed);
+    }
+
+    //getters and setters
+
     public String getFeatherColor() {
         return featherColor;
     }

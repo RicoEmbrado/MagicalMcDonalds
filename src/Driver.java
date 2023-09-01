@@ -9,6 +9,11 @@ public class Driver
         Scanner scanner = new Scanner(System.in);
         Karen karen = new Karen("", 0);
         ArrayList <MagicAnimal> animals = new ArrayList<>();
+        boolean done = false;
+
+        Dragon emptyDragon = new Dragon("");
+        Unicorn emptyUnicorn = new Unicorn("");
+        Griffith emptyGriffith = new Griffith("");
 
         //weight is measured by pounds and speed is measured by units. EX: the dragon, Flyff, will move 10 units per round.
         //anything strength related such as fire breathing, horn sharpness, etc. will all be measured from 1-10.
@@ -27,16 +32,131 @@ public class Driver
             karen.setNumberOfRacers(scanner.nextInt());
         }
         System.out.println("Ok! You are racing " + karen.getNumberOfRacers() + " animals!");
-        for (int i = 0; i < karen.getNumberOfRacers(); i++)
+
+        if (karen.getNumberOfRacers() == 2)
         {
             String animalType = "";
+            String firstAnimal = "";
+            String secondAnimal = "";
+            System.out.println("Please pick the animals you want to race! Same types are not allowed.\nThe choices are:\nDragon\nUnicorn\nGriffith");
+            while(animals.size() == 0)
+            {
+                animalType = scanner.nextLine();
+                firstAnimal = animalType;
+                karen.makeAnimal(animalType, animals);
+            }
+            System.out.println("Please pick the animals you want to race again!\nThe choices are:\nDragon\nUnicorn\nGriffith");
+            animalType = scanner.nextLine();
+            secondAnimal = animalType;
+            while (firstAnimal.equals(secondAnimal))
+            {
+                System.out.println("Please pick a different one.");
+                animalType = scanner.nextLine();
+                secondAnimal = animalType;
+            }
+            karen.makeAnimal(animalType, animals);
+        }
 
-                System.out.println("Please pick the animals you want to race! Same types are not allowed.\nThe choices are:\nDragon\nUnicorn\nGriffith");
-                while(animalType != "Dragon" && animalType != "Unicorn" && animalType != "Griffith")
-                {
-                    animalType = scanner.nextLine();
-                    karen.makeAnimal(animalType, animals);
+        if (karen.getNumberOfRacers() == 3)
+        {
+            String animalType = "";
+            String firstAnimal = "";
+            String secondAnimal = "";
+            String thirdAnimal = "";
+            System.out.println("Please pick the animals you want to race! Same types are not allowed.\nThe choices are:\nDragon\nUnicorn\nGriffith");
+            while(animals.size() == 0)
+            {
+                animalType = scanner.nextLine();
+                firstAnimal = animalType;
+                karen.makeAnimal(animalType, animals);
+            }
+            System.out.println("Please pick the animals you want to race again!\nThe choices are:\nDragon\nUnicorn\nGriffith");
+            animalType = scanner.nextLine();
+            secondAnimal = animalType;
+            while (firstAnimal.equals(secondAnimal))
+            {
+                System.out.println("Please pick a different one, you already picked this.");
+                animalType = scanner.nextLine();
+                secondAnimal = animalType;
+            }
+            karen.makeAnimal(animalType, animals);
+            System.out.println("Please pick the animals you want to race again!\nThe choices are:\nDragon\nUnicorn\nGriffith");
+            animalType = scanner.nextLine();
+            thirdAnimal = animalType;
+            while (firstAnimal.equals(thirdAnimal) || secondAnimal.equals(thirdAnimal))
+            {
+                System.out.println("Please pick a different one, you already picked this.");
+                animalType = scanner.nextLine();
+                thirdAnimal = animalType;
+            }
+            karen.makeAnimal(animalType, animals);
+        }
+
+        //feeding
+
+        System.out.println("Let's feed an animal! Which animal do you want to feed? Your choices are: ");
+        while(done == false)
+        {
+            if (animals.size() == 2) {
+                System.out.println(animals.get(0) + "\n" + animals.get(1) + "\nType 1 for the first option and type 2 for the second.");
+                if (scanner.nextInt() == 1) {
+                    System.out.println(animals.get(0).feed());
+                } else if (scanner.nextInt() == 2) {
+                    System.out.println(animals.get(1).feed());
                 }
+            }
+
+            if (animals.size() == 3) {
+                System.out.println(animals.get(0) + "\n" + animals.get(1) + "\n" + animals.get(2) + "\nType 1 for the first option, type 2 for the second, and type 3 for the third.");
+                if (scanner.nextInt() == 1) {
+                    System.out.println(animals.get(0).feed());
+                } else if (scanner.nextInt() == 2) {
+                    System.out.println(animals.get(1).feed());
+                } else if (scanner.nextInt() == 3) {
+                    System.out.println(animals.get(2).feed());
+                }
+            }
+            System.out.println("Do you want to feed another animal? Yes or No?");
+            String answer = "";
+            while(!answer.equals("Yes") && !answer.equals("No"))
+            {
+                answer = scanner.nextLine();
+                if (answer.equals("Yes"))
+                {
+                    done = false;
+                    System.out.println("Let's feed an animal! Which animal do you want to feed? Your choices are: ");
+                }
+                else if (answer.equals("No"))
+                {
+                    done = true;
+                }
+            }
+        }
+
+        //Starting the race
+
+        ArrayList <Integer> trueSpeeds = new ArrayList<>();
+
+        if (karen.getNumberOfRacers() == 2)
+        {
+            trueSpeeds.add(animals.get(0).calcSpd());
+            trueSpeeds.add(animals.get(1).calcSpd());
+        }
+        else if (karen.getNumberOfRacers() == 3)
+        {
+            trueSpeeds.add(animals.get(0).calcSpd());
+            trueSpeeds.add(animals.get(1).calcSpd());
+            trueSpeeds.add(animals.get(2).calcSpd());
+        }
+
+        System.out.println(karen.decideWinner(trueSpeeds, animals));
+
+        //extras
+
+        System.out.println(karen.toString());
+        for(int i = 0; i < animals.size(); i++)
+        {
+            System.out.println(animals.get(i).toString() + "\n");
         }
     }
 }

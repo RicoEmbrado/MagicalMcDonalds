@@ -24,10 +24,21 @@ public class MagicAnimal
 
     //brain methods
 
-//    public int calcSpd()
-//    {
-//
-//    }
+    public String feed()
+    {
+        speed = speed + (int)(Math.random()*10);
+        weight = weight + (Math.random()*100);
+
+        return("You fed your animal and it now has " + speed + " speed and a weight of " + weight + "pounds.");
+    }
+
+    public int calcSpd()
+    {
+        int trueSpeed;
+        trueSpeed = (int) (speed * (weight/10));
+
+        return(trueSpeed);
+    }
 
     public String getName() {
         return name;
