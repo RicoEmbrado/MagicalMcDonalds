@@ -15,10 +15,6 @@ public class Driver
         Unicorn emptyUnicorn = new Unicorn("");
         Griffith emptyGriffith = new Griffith("");
 
-        //weight is measured by pounds and speed is measured by units. EX: the dragon, Flyff, will move 10 units per round.
-        //anything strength related such as fire breathing, horn sharpness, etc. will all be measured from 1-10.
-        //a hornAbility is what element a unicorn is able to manipulate using their horn
-
         //Naming yourself
 
         System.out.println("You are a new Karen exploring the magical world of McDonalds, what is your name?");
@@ -113,22 +109,36 @@ public class Driver
         System.out.println("Let's feed an animal! Which animal do you want to feed? Your choices are: ");
         while(done == false)
         {
-            if (animals.size() == 2) {
+            if (animals.size() == 2)
+            {
                 System.out.println(animals.get(0) + "\n" + animals.get(1) + "\nType 1 for the first option and type 2 for the second.");
-                if (scanner.nextInt() == 1) {
+                int tempVar = scanner.nextInt();
+                while (tempVar != 1 && tempVar != 2)
+                {
+                    System.out.println("That is not one of the above choices. Try again.");
+                    tempVar = scanner.nextInt();
+                }
+                if (tempVar == 1) {
                     System.out.println(animals.get(0).feed());
-                } else if (scanner.nextInt() == 2) {
+                } else if (tempVar == 2) {
                     System.out.println(animals.get(1).feed());
                 }
             }
 
-            if (animals.size() == 3) {
+            if (animals.size() == 3)
+            {
                 System.out.println(animals.get(0) + "\n" + animals.get(1) + "\n" + animals.get(2) + "\nType 1 for the first option, type 2 for the second, and type 3 for the third.");
-                if (scanner.nextInt() == 1) {
+                int tempVar = scanner.nextInt();
+                while (tempVar != 1 && tempVar != 2)
+                {
+                    System.out.println("That is not one of the above choices. Try again.");
+                    tempVar = scanner.nextInt();
+                }
+                if (tempVar == 1) {
                     System.out.println(animals.get(0).feed());
-                } else if (scanner.nextInt() == 2) {
+                } else if (tempVar == 2) {
                     System.out.println(animals.get(1).feed());
-                } else if (scanner.nextInt() == 3) {
+                } else if (tempVar == 3) {
                     System.out.println(animals.get(2).feed());
                 }
             }
